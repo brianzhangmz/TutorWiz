@@ -1,0 +1,10 @@
+# 编译环境
+language: node_js
+
+# 安装依赖
+install:
+  - npm install
+
+# 代码编译
+script:
+  - npm run build
