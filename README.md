@@ -78,19 +78,19 @@ The number of tutors allocated to a session has to match the number of tutors fi
 A tutor must not be allocated more hours than the maximum number of weekly hours they specified.
 ```
 
-### Specialisations
+## Specialisations
 
 Software Engineering
 
-### Categories
+## Categories
 
 Web tools and Application
 
-### Supervisor
+## Supervisor
 
 Burkhard Wuensche
 
-### Team
+## Team
 
 Lisa Wang
 Brian Zhang
