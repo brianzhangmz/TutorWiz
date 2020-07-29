@@ -53,13 +53,37 @@ Outcome:
 6. Evaluation of effectiveness (to what degree is the resulting assignment “optimal”?)
 ```
 
-Prerequisites
-n/a
+## Project Analysis
+
+### Requriments
+
+The following requriments have to be satisfied.
+
+```
+This system can be used by students and school staffs
+Stuents can apply for tutor position with preferences
+Lecturers can post courses and tutorial sessions
+Courses manager can generate the allocation sheet
+```
+
+### Constraints
+
+The following constraints have to be satisfied.
+
+```
+A tutor can only be allocated to course session when they are free.
+A tutor can only work on 1 course session at a time.
+If a tutor is allocated to a session stream, they have to work on every week that stream runs, at the time of that stream. For example, if course session 1 runs from 8:00 to 10:00 on Monday from weeks 1-12, then the tutors allocated to that stream are occupied during that time on Monday for those weeks.
+The number of tutors allocated to a session has to match the number of tutors field of a session stream.
+A tutor must not be allocated more hours than the maximum number of weekly hours they specified.
+```
 
 ### Specialisations
 
 Software Engineering
-Categories
+
+### Categories
+
 Web tools and Application
 
 ### Supervisor
