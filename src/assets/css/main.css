@@ -55,6 +55,13 @@ html,
   flex-direction: column;
 }
 
+.main-container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background: #ffffff;
+}
+
 .inner-block {
   width: 450px;
   margin: auto;
