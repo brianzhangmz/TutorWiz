@@ -1,10 +1,11 @@
 import Vue from "vue";
-import App from "./App.vue";
-import router from "./router/router";
-import store from "./store/store.js";
+import App from "./App";
+import router from "./router/index";
 import axios from "axios";
 import firebase from "firebase/app";
 
+import PaperDashboard from "./plugins/paperDashboard";
+import "vue-notifyjs/themes/default.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/assets/css/main.css";
 
@@ -19,13 +20,15 @@ const firebaseConfig = {
   storageBucket: "tutorwiz-45f0e.appspot.com",
   messagingSenderId: "841637501702",
   appId: "1:841637501702:web:339009197e67f7d98a1c87",
-  measurementId: "G-EVXL297G47",
+  measurementId: "G-EVXL297G47"
 };
 // initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+Vue.use(PaperDashboard);
+
+/* eslint-disable no-new */
 new Vue({
   router,
-  store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
