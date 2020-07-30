@@ -1,94 +1,53 @@
 <template>
   <div :class="{ 'nav-open': $sidebar.showSidebar }">
     <notifications></notifications>
-    <div class="row">
-      <div class="col-12">
-        <card :title="table1.title" :subTitle="table1.subTitle">
-          <div slot="raw-content" class="table-responsive">
-            <paper-table :data="table1.data" :columns="table1.columns">
-            </paper-table>
-          </div>
-        </card>
-      </div>
 
-      <div class="col-12">
-        <card class="card-plain">
-          <div class="table-full-width table-responsive">
-            <paper-table
-              type="hover"
-              :title="table2.title"
-              :sub-title="table2.subTitle"
-              :data="table2.data"
-              :columns="table2.columns"
-            >
-            </paper-table>
-          </div>
-        </card>
-      </div>
+    <div class="col-12">
+      <card :title="title">
+        <div slot="raw-content" class="table-responsive">
+          <grid
+            :cols="cols"
+            :pagination="pagination"
+            :rows="rows"
+            :search="search"
+            :sort="sort"
+          ></grid>
+        </div>
+      </card>
     </div>
   </div>
 </template>
 <script>
-import { PaperTable } from "@/components";
-const tableColumns = ["Id", "Name", "Salary", "Country", "City"];
-const tableData = [
-  {
-    id: 1,
-    name: "Dakota Rice",
-    salary: "$36.738",
-    country: "Niger",
-    city: "Oud-Turnhout"
-  },
-  {
-    id: 2,
-    name: "Minerva Hooper",
-    salary: "$23,789",
-    country: "Curaçao",
-    city: "Sinaai-Waas"
-  },
-  {
-    id: 3,
-    name: "Sage Rodriguez",
-    salary: "$56,142",
-    country: "Netherlands",
-    city: "Baileux"
-  },
-  {
-    id: 4,
-    name: "Philip Chaney",
-    salary: "$38,735",
-    country: "Korea, South",
-    city: "Overland Park"
-  },
-  {
-    id: 5,
-    name: "Doris Greene",
-    salary: "$63,542",
-    country: "Malawi",
-    city: "Feldkirchen in Kärnten"
-  }
-];
+import Grid from "gridjs-vue";
+import Database from "@/database/Firestore.js";
 
 export default {
   components: {
-    PaperTable
+    Grid,
+  },
+  mounted() {
+    Database.collection("candidates").onSnapshot((docs) => {
+      docs.forEach((doc) => {
+        var s = [];
+        s.push(doc.get("name"));
+        s.push(doc.get("First Choice"));
+        s.push(doc.get("Second Choice"));
+        s.push(doc.get("Third Choice"));
+        this.rows.push(s);
+      });
+    });
   },
   data() {
     return {
-      table1: {
-        title: "Stripped Table",
-        subTitle: "Here is a subtitle for this table",
-        columns: [...tableColumns],
-        data: [...tableData]
-      },
-      table2: {
-        title: "Table on Plain Background",
-        subTitle: "Here is a subtitle for this table",
-        columns: [...tableColumns],
-        data: [...tableData]
-      }
+      title: "Students",
+      pagination: true,
+      search: true,
+      sort: true,
+      cols: ["Name", "First Choice", "Second Choice", "Third Choice"],
+
+      rows: [],
     };
-  }
+  },
 };
 </script>
 <style></style>

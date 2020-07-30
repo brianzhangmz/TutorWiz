@@ -6,7 +6,7 @@
         <sidebar-link to="/stats" name="User Profile" icon="ti-user" />
         <sidebar-link
           to="/table-list"
-          name="Table List"
+          name="Students table"
           icon="ti-view-list-alt"
         />
         <sidebar-link to="/typography" name="Typography" icon="ti-text" />
@@ -62,14 +62,14 @@ export default {
     TopNavbar,
     ContentFooter,
     DashboardContent,
-    MobileMenu
+    MobileMenu,
   },
   methods: {
     toggleSidebar() {
       if (this.$sidebar.showSidebar) {
         this.$sidebar.displaySidebar(false);
       }
-    }
-  }
+    },
+  },
 };
 </script>

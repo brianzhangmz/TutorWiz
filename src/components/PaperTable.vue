@@ -22,6 +22,7 @@
   </table>
   <!-- eslint-enable -->
 </template>
+
 <script>
 export default {
   name: "paper-table",

@@ -20,15 +20,16 @@ const firebaseConfig = {
   storageBucket: "tutorwiz-45f0e.appspot.com",
   messagingSenderId: "841637501702",
   appId: "1:841637501702:web:339009197e67f7d98a1c87",
-  measurementId: "G-EVXL297G47"
+  measurementId: "G-EVXL297G47",
 };
 // initialize Firebase
 firebase.initializeApp(firebaseConfig);
+//const Database = firebase.firestore();
 
 Vue.use(PaperDashboard);
 
 /* eslint-disable no-new */
 new Vue({
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
