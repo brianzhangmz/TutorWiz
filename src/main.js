@@ -3,6 +3,8 @@ import App from "./App";
 import router from "./router/index";
 import axios from "axios";
 import firebase from "firebase/app";
+import "firebase/firestore";
+import Vuex from "vuex";
 
 import PaperDashboard from "./plugins/paperDashboard";
 import "vue-notifyjs/themes/default.css";
@@ -11,6 +13,8 @@ import "@/assets/css/main.css";
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+Vue.use(PaperDashboard);
+Vue.use(Vuex);
 
 const firebaseConfig = {
   apiKey: "AIzaSyDctgLuvKZj1VoMucgnWjiwzm-qP-vDiVk",
@@ -24,9 +28,8 @@ const firebaseConfig = {
 };
 // initialize Firebase
 firebase.initializeApp(firebaseConfig);
-//const Database = firebase.firestore();
-
-Vue.use(PaperDashboard);
+const Database = firebase.firestore();
+Vue.prototype.$Database = Database;
 
 /* eslint-disable no-new */
 new Vue({

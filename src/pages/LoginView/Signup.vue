@@ -59,18 +59,36 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import Header from "@/components/LoginNavibar/LoginTabBar.vue";
+import munkres from "munkres-js";
 
 export default {
+  created() {
+    console.log(
+      "munkres:" +
+        munkres([
+          [100, 100, 0, 0, 0, 100, 100],
+          [100, 100, 0, 0, 0, 100, 100],
+          [0, 0, 1, 1, 1, 100, 100],
+          [0, 0, 1, 1, 1, 100, 100],
+          [100, 100, 0, 0, 0, 1, 100],
+          [100, 100, 0, 0, 0, 1, 100],
+          [100, 100, 0, 0, 0, 1, 100],
+          [100, 100, 0, 0, 0, 1, 100],
+          [100, 100, 100, 100, 100, 100, 1],
+          [100, 100, 100, 100, 100, 100, 1],
+        ])
+    );
+  },
   data() {
     return {
       username: "",
       email: "",
-      password: ""
+      password: "",
     };
   },
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    navi: Header
+    navi: Header,
   },
   methods: {
     //sign up logic
@@ -86,7 +104,7 @@ export default {
           console.log(error);
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
