@@ -77,6 +77,17 @@ If a tutor is allocated to a session stream, they have to work on every week tha
 The number of tutors allocated to a session has to match the number of tutors field of a session stream.
 A tutor must not be allocated more hours than the maximum number of weekly hours they specified.
 ```
+Hard constraints which need to be fully achieved:
+•	Each course must be assigned to one or more candidates depends on the requirement of the course supervisor. 
+•	The working hours of each course must be met.
+•	The assigned solution must not have time clashes. 
+•	Candidates cannot be assigned to the courses which are not in their preference list.
+•	Candidates’ maximum working hours cannot be violated.
+Soft constraints which should be achieved as good as possible:
+•	The candidate is assigned to a tutor position as high preferred as possible.
+•	The student has a strong qualification in position one is assigned.
+•	Professors or course supervisors can pre-select their high-preferred candidates. 
+•	In some situation that violates the hard constraints, like a course's time, cannot be filled, candidates could be assigned to more than one course. 
 
 ## Specialisations
 
